@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200&family=Patrick+Hand&family=Satisfy&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e20f85be7b.js" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        $(document).ready(function(){
+            var arreglo = [ "fa-solid fa-hand-back-fist", "fa-solid fa-hand", "fa-solid fa-hand-scissors" ];
+            var resultado = [ "" , 0, 0 ];
+            $("#score-cpu").html(resultado[2]);
+            $("#score-user").html(resultado[1]);
+            $("span.button").click(function(){
+                var clase = $(this).attr('id');
+                $("#seleccionUser").removeClass();
+                $("#seleccionUser").addClass(clase);
+                $("#seleccionCpu").removeClass();
+                var claseCpu = Math.floor(Math.random() * arreglo.length)
+                $("#seleccionCpu").addClass(arreglo[claseCpu]);
+                resultado = juego(clase, arreglo[claseCpu], resultado);
+                $(".display").html(resultado[0]);
+                $("#score-cpu").html(resultado[2]);
+                $("#score-user").html(resultado[1]);
+            });
+        });
+    </script>
+    <title>Piedra, Papel o Tijeras</title>
+</head>
+<body>
+    <header>
+        <h1>Piedra, Papel o Tijeras</h1>
+    </header>
+    <div class="principal">
+        <div class="user">
+            <i class="fa-solid fa-user"></i>
+            <p>Tú</p>
+            <i id="seleccionUser"></i>
+            <h4>PUNTAJE</h4>
+            <p id="score-user"></p>
+        </div>
+        <div class="display">
+
+        </div>
+        <div class="cpu">
+            <i class="fa-solid fa-desktop"></i>
+            <p>CPU</p>
+            <i id="seleccionCpu"></i>
+            <h4>PUNTAJE</h4>
+            <p id="score-cpu"></p>
+        </div>
+    </div>
+    <div class="opciones">
+        <p>Seleccionar una opción:</p>
+        <span id="fa-solid fa-hand-back-fist" class="button" href=""><i class="fa-solid fa-hand-back-fist"></i></span>
+        <span id="fa-solid fa-hand" class="button" href=""><i class="fa-solid fa-hand"></i></span>
+        <span id="fa-solid fa-hand-scissors" class="button" href=""><i class="fa-solid fa-hand-scissors"></i></span>
+    </div>
+</body>
+</html>
