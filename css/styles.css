@@ -70,3 +70,27 @@ body {
     color:rgb(11, 73, 49);
     font-size: 1.8em;
 }
+
+@media (max-width: 720px) {
+    header {
+        font-size: 1em;
+    }
+    .display {
+        font-size: 1.5em;
+    }
+    .principal {
+        font-size: 1em;
+        padding-top: 2%;
+        padding-left: 5%;
+        padding-right: 2%;
+    }
+    .principal i{
+        font-size: 2.5em;
+    }
+    .opciones p {
+        font-size: 1.5em;
+    }
+    .opciones i {
+        font-size: 5em;
+    }
+  }
